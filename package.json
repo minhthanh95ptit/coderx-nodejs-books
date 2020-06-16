@@ -1,0 +1,28 @@
+{
+  "name": "codersx-nodejs-books",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/minhthanh95ptit/coderx-nodejs-books.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/minhthanh95ptit/coderx-nodejs-books/issues"
+  },
+  "homepage": "https://github.com/minhthanh95ptit/coderx-nodejs-books#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "lowdb": "^1.0.0",
+    "nodemon": "^2.0.4",
+    "pug": "^3.0.0",
+    "shortid": "^2.2.15"
+  }
+}

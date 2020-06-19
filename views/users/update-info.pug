@@ -1,0 +1,17 @@
+h1 Update
+
+form(action="/users/" + id + "/update" method="POST")
+  input(type="hidden" name="id" value=id)
+  label(for="name" ) Tên 
+  br
+  input(type="text" id="name" name="name")  
+  br
+  label(for="adress") Địa chỉ
+    br
+  input(type="text" id="adress" name="address") 
+  br
+  label(for="phone") Số điện thoại
+  br
+  input(type="text" id="phone" name="phone")
+  br
+  button Update

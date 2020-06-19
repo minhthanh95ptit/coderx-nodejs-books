@@ -1,0 +1,47 @@
+doctype html
+html
+  head 
+    link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'
+    integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u' crossorigin='anonymous')
+    
+    link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css')
+    
+    link(rel='stylesheet', href='/stylesheets/style.css')
+
+    style.
+      table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+      }
+      td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+      }
+      tr:nth-child(even) {
+      background-color: #dddddd;
+      }
+
+  body
+
+    h2 users
+
+    a(href="/users/create") Add user
+    table
+      tr
+        th Id
+        th Name
+        th Address
+        th Phone
+        th
+      each user in users
+        tr
+          td #{ user.id }
+          td #{ user.name }
+          td #{ user.address }
+          td #{ user.phone }
+          td 
+            a(href="/users/" + user.id + "/update") Sửa
+            span &nbsp 
+            a(href="/users/" + user.id + "/delete") Xóa

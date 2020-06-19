@@ -1,84 +1,23 @@
 var express = require('express');
 var router = express.Router();
-var shortId = require('shortid');
-var db = require('../db');
-//Index
 
-var booksDb = db.get('books');
+var controller = require('../controllers/book.controller');
 
-router.get('/', function (req, res) {
-  res.render('books/index', {
-    books: booksDb.value()
-  })
-})
 
-//Search
-router.get('/search', function (req, res) {
-  var q = req.query.q;
-  var mathchedbooks = booksDb.value().filter(function (book) {
-    return book.name.toLowerCase().indexOf(q.toLocaleLowerCase()) != -1
-  });
-  res.render('books/index', {
-    books: mathchedbooks,
-    q: q
-  })
-  console.log(req.query);
-})
+router.get('/', controller.index);
 
-//New Create
+router.get('/search', controller.search);
 
-router.get('/create', function (req, res) {
-  res.render('books/create')
+router.get('/create', controller.create);
 
-})
+router.get('/:id', controller.get);
 
-//View
-router.get('/:id', function (req, res) {
-  var id = req.params.id;
+router.get('/:id/delete', controller.delete);
 
-  var book = booksDb.find({ id: id }).value();
+router.post('/create', controller.postCreate);
 
-  res.render('books/view', {
-    book: book
-  })
-})
+router.get('/:id/update', controller.update);
 
-//Delete
-
-router.get('/:id/delete', function (req, res) {
-  var id = req.params.id;
-
-  booksDb.remove({ id: id }).write();
-
-  res.redirect('/books')
-})
-
-router.post('/create', function (req, res) {
-  req.body.id = shortId.generate();
-  console.log(req.body);
-  booksDb.push(req.body).write();
-
-  res.redirect('/books')
-})
-
-//UPDATE
-
-router.get('/:id/update', function (req, res) {
-  var id = req.params.id
-  res.render('books/update-title', {
-    id: id
-  })
-})
-
-router.post('/:id/update', function (req, res) {
-  var newTitle = req.body.title;
-  console.log(req.body);
-  booksDb
-    .find({ id: req.body.id })
-    .assign({ title: newTitle })
-    .write()
-
-  res.redirect('/books');
-})
+router.post('/:id/update', controller.postUpdate);
 
 module.exports = router;

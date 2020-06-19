@@ -4,6 +4,7 @@ var bodyParser = require('body-parser');
 
 var bookRoute = require('./routes/book.route');
 var userRoute = require('./routes/user.route');
+var tranRoute = require('./routes/transaction.route');
 var port = 3000;
 
 app.set('view engine', 'pug');
@@ -18,6 +19,8 @@ app.get('/', function (req, res) {
 
 app.use('/books', bookRoute);
 app.use('/users', userRoute);
+app.use('/transactions', tranRoute);
+
 
 app.listen(3000, function () {
   console.log('Server running at port', port)

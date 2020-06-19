@@ -1,0 +1,49 @@
+doctype html
+html
+  head 
+    link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'
+    integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u' crossorigin='anonymous')
+    
+    link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css')
+    
+    link(rel='stylesheet', href='/stylesheets/style.css')
+
+    style.
+      table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+      }
+      td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+      }
+      tr:nth-child(even) {
+      background-color: #dddddd;
+      }
+
+  body
+
+    h2 Transactions
+
+    a(href="transactions/create") Add Transaction
+    table
+      tr
+        th Id
+        th Book Title
+        th User Name
+        th So Luong
+        th Status
+        th
+      each transaction in transactions
+        tr
+          td #{ transaction.id }
+          td #{ transaction.bookTitle }
+          td #{ transaction.userName }
+          td #{ transaction.soluong }
+          td #{ transaction.status }
+          td 
+            a(href="/transactions/" + transaction.id + "/update") Sửa
+            span &nbsp 
+            a(href="/transactions/" + transaction.id + "/delete") Xóa

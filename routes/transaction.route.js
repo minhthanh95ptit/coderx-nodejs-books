@@ -13,4 +13,5 @@ router.get('/:id/delete', controller.delete)
 router.get('/:id/update', controller.update)
 router.post('/:id/update', controller.postUpdate)
 
+router.get('/:id/complete', controller.complete)
 module.exports = router;

@@ -42,8 +42,16 @@ html
           td #{ transaction.bookTitle }
           td #{ transaction.userName }
           td #{ transaction.soluong }
-          td #{ transaction.status }
+
+        
+          if transaction.isComplete === 1
+            td Đã Trả
+          else
+            td Chưa Trả
+
           td 
             a(href="/transactions/" + transaction.id + "/update") Sửa
             span &nbsp 
             a(href="/transactions/" + transaction.id + "/delete") Xóa
+            span &nbsp 
+            a(href="/transactions/" + transaction.id + "/complete") Cập nhật

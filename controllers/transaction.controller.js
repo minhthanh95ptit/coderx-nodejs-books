@@ -22,7 +22,8 @@ module.exports.index = function (req, res) {
       bookTitle: book.title,
       userName: user.name,
       id: trans.id,
-      soluong: trans.soluong
+      soluong: trans.soluong,
+      isComplete: trans.isComplete
     }
   })
 
@@ -36,7 +37,6 @@ module.exports.create = function (req, res) {
   res.render('transactions/create', {
     books: books,
     users: users,
-    isComplete: isComplete
   });
 }
 
@@ -68,7 +68,6 @@ module.exports.update = function (req, res) {
     books,
     users,
     id,
-
   })
 }
 
@@ -84,5 +83,15 @@ module.exports.postUpdate = function (req, res) {
     })
     .write()
 
+  res.redirect('/transactions');
+}
+
+module.exports.complete = function (req, res) {
+  db.get('transactions')
+    .find({ id: req.params.id })
+    .assign({ isComplete: 1 })
+    .write()
+
+  console.log(db.get('transactions').value())
   res.redirect('/transactions');
 }

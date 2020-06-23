@@ -1,8 +1,11 @@
-h1 Update
+extends ../layouts/common.pug 
 
-form(action="/books/" + id + "/update" method="POST")
-  label(for="") Title  &nbsp
-  input(type="hidden" name="id" value=id)
-  input(type="text" placeholder="Enter new Title" name="title")
-  br
-  button Update
+block content 
+  h1 Update
+
+  form(action="/books/" + id + "/update" method="POST")
+    label(for="") Title  &nbsp
+    input(type="hidden" name="id" value=id)
+    input(type="text" placeholder="Enter new Title" name="title")
+    br
+    button Update

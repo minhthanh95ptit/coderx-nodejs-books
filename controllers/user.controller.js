@@ -24,6 +24,7 @@ module.exports.search = function (req, res) {
   })
 };
 module.exports.create = function (req, res) {
+  console.log(req.cookies);
   res.render('users/create');
 };
 module.exports.postCreate = function (req, res) {

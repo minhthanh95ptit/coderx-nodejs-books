@@ -87,6 +87,7 @@ module.exports.postUpdate = function (req, res) {
 }
 
 module.exports.complete = function (req, res) {
+
   db.get('transactions')
     .find({ id: req.params.id })
     .assign({ isComplete: 1 })

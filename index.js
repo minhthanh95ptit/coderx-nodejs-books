@@ -30,7 +30,7 @@ app.get('/', function (req, res) {
 app.use('/books', bookRoute);
 app.use('/users', userRoute);
 app.use('/transactions', tranRoute);
-app.use('/auth', authRoute);
+
 
 app.listen(3000, function () {
   console.log('Server running at port', port)

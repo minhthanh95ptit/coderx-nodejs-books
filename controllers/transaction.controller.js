@@ -7,6 +7,7 @@ var users = db.get('users').value();
 
 
 module.exports.index = function (req, res) {
+
   var changeTrans = transactions.map(function (trans) {
     var book = books.find(function (book) {
       if (book.id === trans.bookId) {
@@ -18,6 +19,7 @@ module.exports.index = function (req, res) {
         return user.id;
       }
     })
+
     return {
       bookTitle: book.title,
       userName: user.name,
@@ -27,10 +29,16 @@ module.exports.index = function (req, res) {
     }
   })
 
-
-  res.render('transactions/index', {
-    transactions: changeTrans, books, users
+  var user = db.get('users').find({
+    id: req.cookies.userId
   })
+
+  if(!user.isAdmin){
+    res.render('transactions/index', {
+      transactions: changeTrans, books, user
+    })
+  }
+  
 }
 
 module.exports.create = function (req, res) {

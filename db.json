@@ -36,7 +36,28 @@
       "name": "ReactJS",
       "address": "21321321",
       "phone": "0372482268",
-      "id": "a9bXPSHeU"
+      "id": "a9bXPSHeU",
+      "email": "minhthanh95ptit@gmail.com",
+      "password": "123456",
+      "isAdmin": true
+    },
+    {
+      "name": "An Van Linh",
+      "address": "ktx phap van",
+      "phone": "012345678",
+      "id": "Bkb-RoCUg",
+      "email": "kid1412ubqn@gmail.com",
+      "password": "123456",
+      "isAdmin": false
+    },
+    {
+      "name": "An Van Linh",
+      "address": "ktx phap van",
+      "phone": "012345678",
+      "id": "xpUhiQ1sh",
+      "email": "kid1412ubqn5@gmail.com",
+      "password": "123456",
+      "isAdmin": false
     }
   ],
   "transactions": [
@@ -103,6 +124,18 @@
     {
       "id": "XIm4_dTs1",
       "count": 1
+    },
+    {
+      "id": "MdwAiqkdr",
+      "count": 34
+    },
+    {
+      "id": "nRLgcA7fg",
+      "count": 123
+    },
+    {
+      "id": "Zay5tqM0H",
+      "count": 99
     }
   ]
 }

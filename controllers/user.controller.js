@@ -1,5 +1,8 @@
 var express = require('express');
 var router = express.Router();
+var md5 = require('md5');
+
+
 
 var shortId = require('shortid');
 var db = require('../db');

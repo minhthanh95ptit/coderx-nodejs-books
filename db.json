@@ -38,7 +38,7 @@
       "phone": "0372482268",
       "id": "a9bXPSHeU",
       "email": "minhthanh95ptit@gmail.com",
-      "password": "123456",
+      "password": "e10adc3949ba59abbe56e057f20f883e",
       "isAdmin": true
     },
     {
@@ -47,7 +47,7 @@
       "phone": "012345678",
       "id": "Bkb-RoCUg",
       "email": "kid1412ubqn@gmail.com",
-      "password": "123456",
+      "password": "e10adc3949ba59abbe56e057f20f883e",
       "isAdmin": false
     },
     {
@@ -56,7 +56,7 @@
       "phone": "012345678",
       "id": "xpUhiQ1sh",
       "email": "kid1412ubqn5@gmail.com",
-      "password": "123456",
+      "password": "e10adc3949ba59abbe56e057f20f883e",
       "isAdmin": false
     }
   ],
@@ -135,7 +135,7 @@
     },
     {
       "id": "Zay5tqM0H",
-      "count": 99
+      "count": 113
     }
   ]
 }

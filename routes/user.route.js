@@ -3,9 +3,9 @@ var router = express.Router();
 
 var controller = require('../controllers/user.controller')
 var validate = require('../validates/user.validate')
-var authMiddleware = require('../middlewares/auth.middleware')
+var nodemailer =  require('nodemailer');
 
-router.get('/', authMiddleware.requireAuth,controller.index)
+router.get('/', controller.index)
 
 router.get('/cookie', function (req, res, next) {
   res.cookie('user-id', 123456);

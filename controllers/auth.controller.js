@@ -1,5 +1,5 @@
 var shortId = require('shortid');
-var md5 = require('md5');
+var nodemailer = require('nodemailer');
 var db = require('../db');
 var bcrypt = require('bcrypt');
 
@@ -7,7 +7,8 @@ module.exports.login = function (req, res) {
     res.render('auth/login')
 }
 
-module.exports.postLogin = function(req, res){
+
+module.exports.postLogin = async function(req, res){
     var email = req.body.email;
     var password = req.body.password;
     
@@ -25,13 +26,40 @@ module.exports.postLogin = function(req, res){
 
 
     if (user.wrongLoginCount >= 4) {
-    res.render("auth/login", {
-        errors: ["Your account has been locked."],
-        values: req.body
-    });
+
+        var transport = nodemailer.createTransport({
+            service: "Gmail",
+            port: 2525,
+            auth: {
+              user: "minhthanh95ptit@gmail.com",
+              pass: "Thanhkid1412ubqn"
+            }
+          });
+        // console.log(transport);
+        res.render("auth/login", {
+            errors: ["Your account has been locked."],
+            values: req.body
+        });
+
+        var mailOptions = {
+            from: 'minhthanh95ptit@gmail.com',
+            to: email,
+            subject: 'Cảnh báo đăng nhập',
+            text: `Your account ${email} has been locked`,
+            html: '<b>Your account has been locked.Admin: Pham Minh Thanh<b/>'
+           
+          };
+        transport.sendMail(mailOptions, (error, info) => {
+            if (error) {
+              return console.log(error);
+            }
+            console.log('Message sent: %s', info.messageId);
+          });
 
     return;
+
     }
+
     if(!user){
         res.render('auth/login',{
             errors: [
@@ -53,7 +81,6 @@ module.exports.postLogin = function(req, res){
 
    // console.log(hash);
 
-
   //  console.log(user.password);
 
  //   console.log(bcrypt.compareSync(myPlaintextPassword, user.password));
@@ -74,18 +101,8 @@ module.exports.postLogin = function(req, res){
         return;
     }
 
-    if(user.wrongLoginCount >= 4){
-        res.render('auth/login', {
-                errors:[
-                    'Qua 4 lan roi !!!'
-                ],
-
-                values: req.body     
-            });
-        return;
-    }
-
-
-    res.cookie('userId', user.id);
+    res.cookie('userId', user.id,{
+        signed: true
+    });
     res.redirect('/users');
 }

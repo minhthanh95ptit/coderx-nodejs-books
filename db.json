@@ -38,8 +38,9 @@
       "phone": "0372482268",
       "id": "a9bXPSHeU",
       "email": "minhthanh95ptit@gmail.com",
-      "password": "e10adc3949ba59abbe56e057f20f883e",
-      "isAdmin": true
+      "password": "$2y$10$t3LmE4nbLAn1qWnP8nF12.qPlKEwKFkFsZ9DxQSOQQrBfU0E8RWB6",
+      "isAdmin": true,
+      "wrongLoginCount": 0
     },
     {
       "name": "An Van Linh",
@@ -47,8 +48,9 @@
       "phone": "012345678",
       "id": "Bkb-RoCUg",
       "email": "kid1412ubqn@gmail.com",
-      "password": "e10adc3949ba59abbe56e057f20f883e",
-      "isAdmin": false
+      "password": "$2y$10$t3LmE4nbLAn1qWnP8nF12.qPlKEwKFkFsZ9DxQSOQQrBfU0E8RWB6",
+      "isAdmin": false,
+      "wrongLoginCount": 3
     },
     {
       "name": "An Van Linh",
@@ -56,7 +58,7 @@
       "phone": "012345678",
       "id": "xpUhiQ1sh",
       "email": "kid1412ubqn5@gmail.com",
-      "password": "e10adc3949ba59abbe56e057f20f883e",
+      "password": "$2y$10$t3LmE4nbLAn1qWnP8nF12.qPlKEwKFkFsZ9DxQSOQQrBfU0E8RWB6",
       "isAdmin": false
     }
   ],
@@ -136,6 +138,14 @@
     {
       "id": "Zay5tqM0H",
       "count": 113
+    },
+    {
+      "id": "RGVPyJvij",
+      "count": 51
+    },
+    {
+      "id": "SejHAV5fJ",
+      "count": 40
     }
   ]
 }

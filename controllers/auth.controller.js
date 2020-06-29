@@ -31,8 +31,8 @@ module.exports.postLogin = async function(req, res){
             service: "Gmail",
             port: 2525,
             auth: {
-              user: "minhthanh95ptit@gmail.com",
-              pass: "Thanhkid1412ubqn"
+              user: process.env.adminEmail,
+              pass: process.env.adminPassword
             }
           });
         // console.log(transport);
@@ -42,7 +42,7 @@ module.exports.postLogin = async function(req, res){
         });
 
         var mailOptions = {
-            from: 'minhthanh95ptit@gmail.com',
+            from: process.env.adminEmail,
             to: email,
             subject: 'Cảnh báo đăng nhập',
             text: `Your account ${email} has been locked`,

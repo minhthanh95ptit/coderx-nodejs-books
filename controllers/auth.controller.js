@@ -42,19 +42,23 @@ module.exports.postLogin = function(req, res){
         return;
     }   
 
+    console.log(user);
     //ASYNC
 
     var saltRounds = 10;
     var myPlaintextPassword = password ;
     
     var salt = bcrypt.genSaltSync(saltRounds);
-    console.log(salt);
+  //  const hash = bcrypt.hashSync(myPlaintextPassword, salt);
 
-    var hash = bcrypt.hashSync(myPlaintextPassword, salt);
+   // console.log(hash);
 
-    console.log(hash);
 
-    if(!bcrypt.compareSync(myPlaintextPassword, hash)){
+  //  console.log(user.password);
+
+ //   console.log(bcrypt.compareSync(myPlaintextPassword, user.password));
+    //hash -> store db user.password
+    if(!bcrypt.compareSync(myPlaintextPassword, user.password)){
 
         db.get("users")
             .find({ id: user.id })

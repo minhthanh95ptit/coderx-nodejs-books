@@ -5,19 +5,28 @@ block content
 
     h2 Books
 
-    a(href="books/create") Add Book
-    table
-      tr
-        th Id
-        th Title
-        th Description
-        th
+    .card-group
       each book in books
-        tr
-          td #{ book.id }
-          td #{ book.title }
-          td #{ book.description }
-          td 
-            a(href="/books/" + book.id + "/update") Sửa
-            span &nbsp 
-            a(href="/books/" + book.id + "/delete") Xóa
+        .card(style='width: 18rem;').p-3
+          img.card-img-top(src=book.image)
+          .card-body
+            h5.card-title #{book.title}
+            p.card-text #{book.description}
+            a.btn.btn-primary(href="/books/" + book.id) Xem
+            a.btn.btn-primary(href="/books/" + book.id + "/update") Sửa 
+            a.btn.btn-primary(href="/books/" + book.id + "/delete") Xóa 
+          .card-footer
+            small.text-muted Last updated 3 mins ago
+    
+    nav(aria-label='Page navigation example')
+    ul.pagination
+      li.page-item
+        a.page-link(href='/books/?page='+ parseInt(page - 1)) Previous
+      li.page-item
+        a.page-link(href='/books/?page='+ page) #{page}
+      li.page-item
+        a.page-link(href='/books/?page='+ parseInt(page + 1)) #{page + 1}
+      li.page-item
+        a.page-link(href='/books/?page='+ parseInt(page + 2)) #{page + 2}
+      li.page-item
+        a.page-link(href='/books/?page='+ parseInt(page + 3)) Next

@@ -4,8 +4,22 @@ var db = require('../db');
 var booksDb = db.get('books');
 
 module.exports.index = function (req, res) {
+  var page = parseInt(req.query.page) || 1;
+  var perPage = 4;
+  console.log(page);
+  var start = (page - 1) * perPage;
+  var end = page * perPage;
+
+  var countBook = booksDb.size().value();
+  console.log(countBook);
+  var lastPage = Math.round(countBook / perPage);
+  console.log(lastPage);
   res.render('books/index', {
-    books: booksDb.value()
+    books: booksDb.value().slice(start, end),
+    firstPage: '1',
+    page: page,
+    lastPage: lastPage
+
   })
 }
 

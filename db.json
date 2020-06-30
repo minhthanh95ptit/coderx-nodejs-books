@@ -670,9 +670,36 @@
       "phone": "012345678",
       "id": "xpUhiQ1sh",
       "email": "kid1412ubqn5@gmail.com",
-      "password": "$2b$10$LXYhOrAkm1/YdN6LFw3eL.nZCwZcvcR7.0.PeFJaqK1HcX8Z7C7FK",
       "isAdmin": false,
       "wrongLoginCount": 4
+    },
+    {
+      "name": "Phạm Minh Thành",
+      "address": "21321321",
+      "phone": "0372482268",
+      "id": "1ftyPeYgt",
+      "avatar": "uploads/a4fa95dacdcdeac82456b53bd5854ccb"
+    },
+    {
+      "name": "Phạm Minh Thành",
+      "address": "21321321",
+      "phone": "0372482268",
+      "id": "N9p8VKr_b",
+      "avatar": "uploads/0dd5d71b32d942b99ee05398fff0c1c3"
+    },
+    {
+      "name": "Phạm Minh Thành",
+      "address": "21321321",
+      "phone": "0372482268",
+      "id": "D-U8DMs-9",
+      "avatar": "uploads/avatar.jpg"
+    },
+    {
+      "name": "Phạm Minh Thành",
+      "address": "21321321",
+      "phone": "0372482268",
+      "id": "BeZ9-jSYy",
+      "avatar": "uploads/avatar.jpg"
     }
   ],
   "transactions": [
@@ -762,7 +789,7 @@
     },
     {
       "id": "jceD6y-mF",
-      "count": 316
+      "count": 486
     }
   ]
 }

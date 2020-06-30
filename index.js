@@ -28,6 +28,8 @@ app.use(express.static('public'));
 
 app.use(cookieMiddleware);
 
+
+
 app.get('/', function (req, res) {
   res.render('index');
 })

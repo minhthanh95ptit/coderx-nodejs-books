@@ -8,14 +8,15 @@ block content
     a(href="/users/create") Add user
     table
       tr
-        th Id
+        th Avatar
         th Name
         th Address
         th Phone
         th
       each user in users
         tr
-          td #{ user.id }
+          td 
+            img(src=user.avatar, width="64" style="border-radius: 32px;")
           td #{ user.name }
           td #{ user.address }
           td #{ user.phone }

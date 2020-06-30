@@ -8,17 +8,21 @@ block content
     each error in errors 
       .alert.alert-danger= error
 
-  form(action="/users/create", method="POST")
-    label(for="name" ) Tên 
-    br
-    input(type="text" id="name" name="name", value=values ? values.name : '')  
-    br
-    label(for="adress") Địa chỉ
-    br
-    input(type="text" id="adress" name="address", value=values ? values.address : '' ) 
-    br
-    label(for="phone") Số điện thoại
-    br
-    input(type="text" id="phone" name="phone",value=values ? values.phone : '')
-    br
+  form(action="/users/create", method="POST", enctype="multipart/form-data")
+    .form-group
+      label(for="name" ) Tên
+      br 
+      input.form-control(type="text" id="name" name="name", value=values ? values.name : '')  
+    .form-group 
+      label(for="adress") Địa chỉ
+      br
+      input.form-control(type="text" id="adress" name="address", value=values ? values.address : '' ) 
+    .form-group
+      label(for="phone") Số điện thoại
+      br
+      input.form-control(type="text" id="phone" name="phone",value=values ? values.phone : '')
+    .form-group
+      label(for="avatar") Avatar
+      br
+      input.form-control-file(type="file" name="avatar") 
     button Create

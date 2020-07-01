@@ -5,7 +5,7 @@ var booksDb = db.get('books');
 
 module.exports.index = function (req, res) {
   var page = parseInt(req.query.page) || 1;
-  var perPage = 4;
+  var perPage = 8;
   console.log(page);
   var start = (page - 1) * perPage;
   var end = page * perPage;

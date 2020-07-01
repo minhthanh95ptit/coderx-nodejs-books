@@ -1,24 +1,46 @@
-extends ../layouts/common.pug 
+extends ../layouts/common
 
 block content
-  body
 
-    h2 Books
-
-    .card-group
+  
+  .container.pt-5
+  
+    .heading.d-flex.align-items-center
+      h1 Books
+      .hire.ml-auto.d-flex.align-items-center
+        span.text-success Cart (#{count})
+        form(action="/transactions", method="POST")
+          button.btn.btn-success.ml-2 Hire
+    table.table.table-bordered.my-3(class= user ? (user.isAdmin ? '' : 'd-none') : 'd-none')
+      tr
+        th Book cover
+        th Book title
+        th Description
+        th.text-center(colspan="2") Action
       each book in books
-        .card(style='width: 18rem;').p-3
-          img.card-img-top(src=book.image)
-          .card-body
-            h5.card-title #{book.title}
-            p.card-text #{book.description}
-            a.btn.btn-primary(href="/books/" + book.id) Xem
-            a.btn.btn-primary(href="/books/" + book.id + "/update") Sửa 
-            a.btn.btn-primary(href="/books/" + book.id + "/delete") Xóa 
-          .card-footer
-            small.text-muted Last updated 3 mins ago
-    
-    nav(aria-label='Page navigation example')
+        tr
+          td
+            if book.coverUrl
+              img.rounded(src= book.coverUrl width="64" height="64")
+          td= book.title
+          td= book.description
+          td.text-center
+            a.btn.btn-info(href="/books/" + book.id + "/update") Update cover book
+          td.text-center
+            a.btn.btn-danger(href="/books/" + book.id + "/delete") Delete
+    .container(class= user ? (user.isAdmin ? 'd-none' : '') : '')
+      .pt-5.d-flex.flex-wrap
+        each book in books
+          .col-6.col-lg-3.my-2
+            .card
+              if book.coverUrl
+                img.w-100(src= book.coverUrl)
+
+                h5.card-title=book.title
+                p.card-text=book.description
+                a.btn.btn-primary(href='/cart/add/' + book.id) Go to cart
+                
+    nav(aria-label='Page navigation')
     ul.pagination
       li.page-item
         a.page-link(href='/books/?page='+ parseInt(page - 1)) Previous
@@ -29,4 +51,4 @@ block content
       li.page-item
         a.page-link(href='/books/?page='+ parseInt(page + 2)) #{page + 2}
       li.page-item
-        a.page-link(href='/books/?page='+ parseInt(page + 3)) Next
+        a.page-link(href='/books/?page='+ parseInt(page + 1)) Next

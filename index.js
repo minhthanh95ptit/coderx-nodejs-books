@@ -9,9 +9,11 @@ var bookRoute = require('./routes/book.route');
 var userRoute = require('./routes/user.route');
 var tranRoute = require('./routes/transaction.route');
 var authRoute = require('./routes/auth.route');
+var cartRoute = require('./routes/auth.route');
 
 var cookieMiddleware = require('./middlewares/cookie.middleware');
 var authMiddleware = require('./middlewares/auth.middleware');
+var sessionMiddleware = require('./middlewares/session.middleware');
 
 var port = 3000;
 
@@ -24,6 +26,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(cookieParser(process.env.SECSSION_SECRET));
 
+app.use(sessionMiddleware);
+
 app.use(express.static('public'));
 
 app.use(cookieMiddleware);
@@ -34,11 +38,12 @@ app.get('/', function (req, res) {
   res.render('index');
 })
 
-app.use('/books', authMiddleware.requireAuth, bookRoute);
+app.use('/books', bookRoute);
 app.use('/users', authMiddleware.requireAuth, userRoute);
 app.use('/transactions', authMiddleware.requireAuth, tranRoute);
 app.use('/auth', authRoute);
+app.use('/cart', cartRoute);
 
-app.listen(3000, function () {
+app.listen(port, function () {
   console.log('Server running at port', port)
 })
